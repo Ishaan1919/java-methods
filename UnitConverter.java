@@ -44,6 +44,34 @@ public class UnitConverter {
         return inches * inches2cm;
     }
 
+    public static double convertFahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+    }
+
+    public static double convertCelsiusToFahrenheit(double celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+
+    public static double convertPoundsToKilograms(double pounds) {
+        double pounds2kilograms = 0.453592;
+        return pounds * pounds2kilograms;
+    }
+
+    public static double convertKilogramsToPounds(double kilograms) {
+        double kilograms2pounds = 2.20462;
+        return kilograms * kilograms2pounds;
+    }
+
+    public static double convertGallonsToLiters(double gallons) {
+        double gallons2liters = 3.78541;
+        return gallons * gallons2liters;
+    }
+
+    public static double convertLitersToGallons(double liters) {
+        double liters2gallons = 0.264172;
+        return liters * liters2gallons;
+    }
+
     public static void main(String[] args) {
         System.out.println("10 km in miles: " + convertKmToMiles(10));
         System.out.println("10 miles in km: " + convertMilesToKm(10));
@@ -54,5 +82,11 @@ public class UnitConverter {
         System.out.println("10 meters in inches: " + convertMetersToInches(10));
         System.out.println("10 inches in meters: " + convertInchesToMeters(10));
         System.out.println("10 inches in cm: " + convertInchesToCm(10));
+        System.out.println("100 Fahrenheit in Celsius: " + convertFahrenheitToCelsius(100));
+        System.out.println("37 Celsius in Fahrenheit: " + convertCelsiusToFahrenheit(37));
+        System.out.println("10 pounds in kilograms: " + convertPoundsToKilograms(10));
+        System.out.println("10 kilograms in pounds: " + convertKilogramsToPounds(10));
+        System.out.println("10 gallons in liters: " + convertGallonsToLiters(10));
+        System.out.println("10 liters in gallons: " + convertLitersToGallons(10));
     }
 }
