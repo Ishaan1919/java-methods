@@ -9,11 +9,6 @@ public class SpringSeason {
     }
 
     public static void main(String[] args) {
-        if (args.length < 2) {
-            System.out.println("Please provide month and day as command-line arguments.");
-            return;
-        }
-
         Scanner input = new Scanner(System.in);
         
         System.out.print("Enter the month: ");
