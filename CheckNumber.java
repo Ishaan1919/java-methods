@@ -21,6 +21,36 @@ public class CheckNumber {
         return digits;
     }
 
+    public static int[] reverseArray(int[] array) {
+        int[] reversed = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[array.length - 1 - i];
+        }
+        return reversed;
+    }
+
+    public static boolean compareArrays(int[] array1, int[] array2) {
+        if (array1.length != array2.length) return false;
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] != array2[i]) return false;
+        }
+        return true;
+    }
+
+    public static boolean isPalindrome(int number) {
+        int[] digits = getDigitsArray(number);
+        int[] reversed = reverseArray(digits);
+        return compareArrays(digits, reversed);
+    }
+
+    public static boolean isDuckNumber(int number) {
+        while (number > 0) {
+            if (number % 10 == 0) return true;
+            number /= 10;
+        }
+        return false;
+    }
+
     public static int sumOfDigits(int[] digits) {
         int sum = 0;
         for (int i = 0; i < digits.length; i++) {
@@ -69,6 +99,8 @@ public class CheckNumber {
         System.out.println("Sum of digits: " + sumOfDigits(digits));
         System.out.println("Sum of squares of digits: " + sumOfSquaresOfDigits(digits));
         System.out.println("Is Harshad Number: " + isHarshadNumber(number));
+        System.out.println("Is Palindrome: " + isPalindrome(number));
+        System.out.println("Is Duck Number: " + isDuckNumber(number));
 
         int[][] frequency = digitFrequency(number);
         System.out.println("Digit Frequency:");
