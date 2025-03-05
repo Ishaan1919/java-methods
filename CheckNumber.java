@@ -86,6 +86,43 @@ public class CheckNumber {
         return frequency;
     }
 
+    public static boolean isPrime(int number) {
+        if (number < 2) return false;
+        for (int i = 2; i * i <= number; i++) {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+
+    public static boolean isNeonNumber(int number) {
+        int square = number * number;
+        int sum = 0;
+        while (square > 0) {
+            sum += square % 10;
+            square /= 10;
+        }
+        return sum == number;
+    }
+
+    public static boolean isSpyNumber(int number) {
+        int[] digits = getDigitsArray(number);
+        int sum = sumOfDigits(digits);
+        int product = 1;
+        for (int i = 0; i < digits.length; i++) {
+            product *= digits[i];
+        }
+        return sum == product;
+    }
+
+    public static boolean isAutomorphicNumber(int number) {
+        int square = number * number;
+        return square % (int) Math.pow(10, countDigits(number)) == number;
+    }
+
+    public static boolean isBuzzNumber(int number) {
+        return number % 7 == 0 || number % 10 == 7;
+    }
+
     public static void main(String[] args) {
         int number = 153; // Example number
 
@@ -101,6 +138,11 @@ public class CheckNumber {
         System.out.println("Is Harshad Number: " + isHarshadNumber(number));
         System.out.println("Is Palindrome: " + isPalindrome(number));
         System.out.println("Is Duck Number: " + isDuckNumber(number));
+        System.out.println("Is Prime: " + isPrime(number));
+        System.out.println("Is Neon Number: " + isNeonNumber(number));
+        System.out.println("Is Spy Number: " + isSpyNumber(number));
+        System.out.println("Is Automorphic Number: " + isAutomorphicNumber(number));
+        System.out.println("Is Buzz Number: " + isBuzzNumber(number));
 
         int[][] frequency = digitFrequency(number);
         System.out.println("Digit Frequency:");
